@@ -5,7 +5,7 @@ use std::sync::atomic::{AtomicBool, AtomicU8, Ordering};
 use libc::{c_char, c_int, c_long, c_short, c_uint, c_ulong, c_ushort};
 use num_enum::{IntoPrimitive, TryFromPrimitive};
 
-type XID = usize;
+type Xid = usize;
 type Mask = usize;
 type Atom = usize;
 type VisualID = usize;
@@ -13,13 +13,13 @@ type Time = usize;
 type Bool = c_int;
 type Status = c_int;
 
-type Colormap = XID;
-type Cursor = XID;
-type Drawable = XID;
-type Font = XID;
-type Pixmap = XID;
-pub type Window = XID;
-type XserverRegion = XID;
+type Colormap = Xid;
+type Cursor = Xid;
+type Drawable = Xid;
+type Font = Xid;
+type Pixmap = Xid;
+pub type Window = Xid;
+type XserverRegion = Xid;
 
 pub struct Display(pub *mut ffi::Display);
 impl std::ops::Deref for Display {
@@ -580,7 +580,7 @@ pub mod ffi {
         ) -> Window;
         pub fn XShapeCombineMask(
             dpy: *mut ffi::Display,
-            dest: XID,
+            dest: Xid,
             destKind: c_int,
             xOff: c_int,
             yOff: c_int,
