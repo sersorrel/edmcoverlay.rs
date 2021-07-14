@@ -572,7 +572,6 @@ async fn main() -> Result<(), eyre::Report> {
     color_eyre::install()?;
 
     let opt = Opt::from_args();
-    // TODO: handle SIGINT and SIGTERM
 
     let (tx, rx): (mpsc::Sender<Command>, _) = mpsc::channel(100);
 
